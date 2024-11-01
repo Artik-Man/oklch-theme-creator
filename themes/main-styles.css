@@ -1,0 +1,103 @@
+/* Основные стили элементов */
+* {
+    transition: all 250ms linear;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    font-size: 2vmin;
+    background: var(--surface-body-background);
+    color: var(--surface-body-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--surface-body-heading-color);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: .5rem 0 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+
+.container {
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+
+.button {
+    padding: 1rem 2rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: .25rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+/* Surface Button Primary */
+.button.primary {
+    background: var(--surface-button-primary-background);
+    color: var(--surface-button-primary-color);
+    border-color: var(--surface-button-primary-background)
+}
+
+.button.primary:hover {
+    --button-primary-hover: oklch(from var(--surface-button-primary-background) calc(l * 1.3) c h);
+    background: var(--button-primary-hover);
+    color: oklch(from var(--button-primary-hover) calc((0.5 - l) * var(--max)) 0 0);
+    border-color: var(--button-primary-hover);
+}
+
+/* Surface Button Accent */
+.button.accent {
+    color: var(--surface-button-accent-color);
+    border-color: var(--surface-button-accent-color);
+}
+
+.button.accent:hover {
+    --button-accent-hover: oklch(from var(--surface-button-accent-color) calc(l * 0.5) calc(c * 0.5) h);
+    color: var(--button-accent-hover);
+    border-color: var(--button-accent-hover);
+}
+
+
+/* Surface Menu */
+.menu {
+    border-radius: .25rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1.5rem 0;
+    background: var(--surface-menu-background);
+    color: var(--surface-menu-color);
+}
+
+.menu h1, .menu h2, .menu h3, .menu h4, .menu h5, .menu h6 {
+    color: var(--surface-menu-heading-color);
+}
+
+
+/* Surface Modal */
+.modal {
+    border-radius: .5rem;
+    padding: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    margin: 1.5rem 0;
+    background: var(--surface-modal-background);
+    color: var(--surface-modal-color);
+}
+
+.modal h1, .modal h2, .modal h3, .modal h4, .modal h5, .modal h6 {
+    color: var(--surface-modal-heading-color);
+}

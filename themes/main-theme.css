@@ -1,0 +1,50 @@
+/* Переменные элементов */
+
+:root {
+    --primary: oklch(var(--lightness) var(--chroma) var(--hue));
+    --accent: oklch(var(--lightness) var(--chroma) calc(var(--hue) + 180));
+}
+
+:root {
+    --max: calc(999999999);
+}
+
+:root {
+    /* Surface Body */
+
+    --surface-body-background: oklch(from var(--primary) calc((0.5 - l) * var(--max)) 0 0);
+    --surface-body-color: oklch(from var(--primary) calc((l - 0.5) * var(--max)) 0 0);
+    --surface-body-heading-color: var(--primary);
+}
+
+:root {
+    /* Surface Button Primary */
+
+    --surface-button-primary-background: var(--primary);
+    --surface-button-primary-color: oklch(from var(--surface-button-primary-background) calc((0.5 - l) * var(--max)) 0 0);
+}
+
+:root {
+    /* Surface Button Accent */
+
+    --surface-button-accent-color: var(--accent);
+}
+
+:root {
+    /* Surface Menu */
+
+    --surface-menu-background: oklch(from var(--surface-body-background) calc((l - 0.5) * 0.5) c h);
+    --surface-menu-color: oklch(from var(--surface-menu-background) calc((0.5 - l) * var(--max)) 0 0);
+    --surface-menu-heading-color: oklch(from var(--primary) calc(l * 1.5) c h);
+}
+
+:root {
+    /* Surface Modal */
+
+    --surface-modal-background: oklch(from var(--surface-body-background) calc(l * 0.9) c h);
+    --surface-modal-color: oklch(from var(--surface-modal-background) calc((0.5 - l) * var(--max)) 0 0);
+    --surface-modal-heading-color: oklch(from var(--primary) calc(l * 0.8) c h)
+}
+
+
+

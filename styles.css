@@ -1,0 +1,130 @@
+:root {
+    --l: 0.5;
+    --c: 0.2;
+    --h: 200;
+    --contrast-multiplexor: calc(2147483647);
+}
+
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    font-size: 2vmin;
+}
+
+.container {
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.controls label {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.controls input {
+    width: 100%;
+}
+
+/*******************************/
+
+.result {
+    --lightnes: var(--l);
+    --chroma: var(--c);
+    --hue: var(--h);
+    --color: oklch(var(--lightnes) var(--chroma) var(--hue));
+    --contrast: oklch(calc((0.5 - var(--lightnes)) * var(--contrast-multiplexor)) 0 0);
+
+    background: var(--color);
+    color: var(--contrast);
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.result .theme {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 1rem;
+    margin: 0 auto 1rem;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.result .theme span {
+    --color-l: calc(var(--theme-l) + var(--lightnes) - 0.5);
+    --color-c: calc(var(--theme-c) * var(--chroma));
+
+    background: oklch(var(--color-l) var(--color-c) var(--hue));
+    color: oklch(calc((0.5 - var(--color-l)) * var(--contrast-multiplexor)) 0 0);
+}
+
+.result .theme span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+
+.result.accent {
+    --lightnes: calc(var(--l) + var(--accent-l));
+    --chroma: calc(var(--c) + var(--accent-c));
+    --hue: calc(var(--h) + var(--accent-h));
+}
+
+.result.hsl {
+    --lightnes: var(--l);
+    --saturation: var(--c);
+    --hue: var(--h);
+    --color: hsl(calc((var(--hue) - 25) * 1deg) calc(var(--saturation) * 100 / 37 * 100%) calc(var(--lightnes) * 100%));
+    --contrast: hsl(0 0 calc((0.5 - var(--lightnes)) * var(--contrast-multiplexor) * 1%));
+}
+
+.result.hsl .theme span {
+    --color-l: calc(var(--theme-l) + var(--lightnes) - 0.5);
+    --color-s: calc(var(--theme-c) * var(--chroma));
+
+    background: hsl(
+            calc((var(--hue) - 25) * 1deg) calc(var(--color-s) * 100 / 37 * 100%) calc(var(--color-l) * 100%)
+    );
+    color: hsl(0 0 calc((0.5 - var(--color-l)) * var(--contrast-multiplexor) * 1%));
+}
+
+/*******************************/
+
+.random-palette {
+    display: flex;
+    background: white;
+    padding: 1rem;
+    margin: 1rem -1rem -1rem;
+    gap: .25rem;
+}
+
+.random-palette span {
+    border-radius: .25rem;
+    display: block;
+    flex-grow: 1;
+    background: oklch(var(--l) var(--c) calc(var(--h) + var(--counter) * 149));
+    color: oklch(calc((0.5 - var(--l)) * var(--contrast-multiplexor)) 0 0);
+}
+
+.random-palette span::after {
+    content: 'badge';
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: inline-block;
+    padding: 1rem 0;
+    font-weight: normal;
+}
