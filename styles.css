@@ -128,3 +128,25 @@ html, body {
     padding: 1rem 0;
     font-weight: normal;
 }
+
+/*******************************/
+
+.demo-link {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: .1rem .5rem 1rem 0 black;
+
+    --updated-l: var(--l);
+    background: oklch(var(--updated-l) var(--c) var(--h));
+    color: oklch(calc((0.5 - var(--updated-l)) * var(--contrast-multiplexor)) 0 0);
+}
+
+.demo-link:hover {
+    --updated-l: calc(var(--l) * 0.8);
+}
