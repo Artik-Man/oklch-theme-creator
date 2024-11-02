@@ -1,6 +1,6 @@
 /* Основные стили элементов */
 * {
-    transition: all 250ms linear;
+    transition: all 150ms linear;
 }
 
 body {
@@ -46,6 +46,10 @@ p {
     text-decoration: none;
     font-size: 1.5rem;
     display: inline-block;
+}
+
+.button:hover {
+    color: oklch(from var(--primary) clamp(0, calc((l - 0.5) * var(--max)), 1) 0 0);
 }
 
 /* Surface Button Primary */

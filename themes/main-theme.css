@@ -2,7 +2,7 @@
 
 :root {
     --primary: oklch(var(--lightness) var(--chroma) var(--hue));
-    --accent: oklch(var(--lightness) var(--chroma) calc(var(--hue) + 180));
+    --accent: oklch(var(--lightness) var(--chroma) calc(var(--hue) + 240));
 }
 
 :root {
@@ -13,7 +13,7 @@
 :root {
     /* Surface Body */
 
-    --surface-body-background: oklch(from var(--primary) clamp(0.2, calc((0.5 - l) * var(--max)), 1) 0.03 h);
+    --surface-body-background: oklch(from var(--primary) clamp(0.15, calc((0.5 - l) * var(--max)), 1) 0.03 h);
     --surface-body-color: oklch(from var(--primary) clamp(0, calc((l - 0.5) * var(--max)), 1) 0 0);
     --surface-body-heading-color: var(--primary);
 }
@@ -37,8 +37,8 @@
     /* Surface Menu */
 
     --surface-menu-background: oklch(from var(--primary) clamp(0.3, calc((0.5 - l) * var(--max)), 0.9) 0.03 h);
-    --surface-menu-color: oklch(from var(--surface-menu-background) calc((0.5 - l) * var(--max)) 0 0);
-    --surface-menu-heading-color: oklch(from var(--surface-menu-background) clamp(0.3, calc(( 0.5 - l) * var(--max)), 0.7) c h);
+    --surface-menu-color: oklch(from var(--surface-menu-background) clamp(0, calc((0.5 - l) * var(--max)), 1) 0 0);
+    --surface-menu-heading-color: oklch(from var(--surface-menu-background) clamp(0.3, calc((0.5 - l) * var(--max)), 0.7) c h);
 }
 
 :root {
