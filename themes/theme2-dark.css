@@ -1,0 +1,22 @@
+:root {
+    --lightness: 0.6;
+    --chroma: 0.2;
+    --hue: 12;
+}
+
+:root {
+    --accent: oklch(var(--lightness) var(--chroma) calc(var(--hue) + 270));
+}
+
+:root{
+    /* Surface Body */
+
+    --surface-body-background: oklch(from var(--primary) clamp(0.2, calc((0.5 - l) * var(--max)), 1) 0 0);
+}
+
+:root {
+    /* Surface Menu */
+
+    --surface-menu-background: oklch(0.3 0 0);
+    --surface-menu-heading-color: oklch(from var(--primary) 0.7 c h);
+}

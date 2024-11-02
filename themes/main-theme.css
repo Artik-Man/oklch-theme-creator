@@ -7,13 +7,14 @@
 
 :root {
     --max: calc(999999999);
+    --is-light-scheme: clamp(0, calc(0.5 - var(--lightness) * var(--max)), 1);
 }
 
 :root {
     /* Surface Body */
 
-    --surface-body-background: oklch(from var(--primary) calc((0.5 - l) * var(--max)) 0 0);
-    --surface-body-color: oklch(from var(--primary) calc((l - 0.5) * var(--max)) 0 0);
+    --surface-body-background: oklch(from var(--primary) clamp(0.2, calc((0.5 - l) * var(--max)), 1) 0.03 h);
+    --surface-body-color: oklch(from var(--primary) clamp(0, calc((l - 0.5) * var(--max)), 1) 0 0);
     --surface-body-heading-color: var(--primary);
 }
 
@@ -21,29 +22,31 @@
     /* Surface Button Primary */
 
     --surface-button-primary-background: var(--primary);
-    --surface-button-primary-color: oklch(from var(--surface-button-primary-background) calc((0.5 - l) * var(--max)) 0 0);
+    --surface-button-primary-hover-background: oklch(from var(--surface-button-primary-background) calc(l * 1.3) c h);
 }
 
 :root {
     /* Surface Button Accent */
 
+    --surface-button-accent-background: transparent;
     --surface-button-accent-color: var(--accent);
+    --surface-button-accent-hover-color: oklch(from var(--surface-button-accent-color) calc(l * 1.5) calc(c * 1.5) h);
 }
 
 :root {
     /* Surface Menu */
 
-    --surface-menu-background: oklch(from var(--surface-body-background) calc((l - 0.5) * 0.5) c h);
+    --surface-menu-background: oklch(from var(--primary) clamp(0.3, calc((0.5 - l) * var(--max)), 0.9) 0.03 h);
     --surface-menu-color: oklch(from var(--surface-menu-background) calc((0.5 - l) * var(--max)) 0 0);
-    --surface-menu-heading-color: oklch(from var(--primary) calc(l * 1.5) c h);
+    --surface-menu-heading-color: oklch(from var(--surface-menu-background) clamp(0.3, calc(( 0.5 - l) * var(--max)), 0.7) c h);
 }
 
 :root {
     /* Surface Modal */
 
-    --surface-modal-background: oklch(from var(--surface-body-background) calc(l * 0.9) c h);
+    --surface-modal-background: oklch(from var(--surface-body-background) l calc(c * 0.5) h);
     --surface-modal-color: oklch(from var(--surface-modal-background) calc((0.5 - l) * var(--max)) 0 0);
-    --surface-modal-heading-color: oklch(from var(--primary) calc(l * 0.8) c h)
+    --surface-modal-heading-color: var(--surface-modal-color);
 }
 
 

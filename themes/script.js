@@ -1,12 +1,13 @@
-(() => {
-    document.getElementById("theme-switcher").addEventListener('click', () => {
-        const theme = document.getElementById("theme");
+{
+    const theme = document.getElementById("theme");
 
-        console.log(theme.href.endsWith("light.css"))
-        theme.setAttribute('href',
-            theme.href.endsWith("light.css") ?
-                "./theme1-dark.css"
-                : "./theme1-light.css"
-        );
+    document.getElementById("theme-switcher").addEventListener('click', (evt) => {
+        const button = evt.target;
+        const selectedTheme = button.dataset.theme;
+        if (selectedTheme) {
+            theme.setAttribute('href', selectedTheme);
+            evt.target.parentElement.querySelector('button.primary').classList.remove('primary');
+            button.classList.add("primary");
+        }
     });
-})()
+}
